@@ -1,0 +1,21 @@
+{
+	"toolChain": "xilinx",
+	"prjName": {
+		"PL": "template"
+	},
+	"soc": {
+		"core": "none"
+	},
+	"enableShowLog": false,
+	"device": "none",
+	"library": {
+		"state": "remote",
+		"hardware": {
+			"common": [],
+			"custom": [
+				"rtl/oled12864.v",
+				"rtl/oled12832.v"
+			]
+		}
+	}
+}

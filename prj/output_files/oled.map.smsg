@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at oled12864.v(20): object "CMD" differs only in case from object "cmd" in the same scope File: E:/03k/FPGA/MAX10/oled/rtl/oled12864.v Line: 20
+Info (10281): Verilog HDL Declaration information at oled12832.v(20): object "CMD" differs only in case from object "cmd" in the same scope File: E:/03k/FPGA/MAX10/oled/rtl/oled12832.v Line: 20

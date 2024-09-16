@@ -1,0 +1,438 @@
+Analysis & Synthesis report for oled
+Fri Sep 13 02:16:01 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |oled12832|state_back
+  9. State Machine - |oled12832|state
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+ 18. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Sep 13 02:16:01 2024       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; oled                                        ;
+; Top-level Entity Name              ; oled12832                                   ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 673                                         ;
+;     Total combinational functions  ; 673                                         ;
+;     Dedicated logic registers      ; 94                                          ;
+; Total registers                    ; 94                                          ;
+; Total pins                         ; 7                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M02SCM153C8G     ;                    ;
+; Top-level entity name                                            ; oled12832          ; oled               ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 20          ;
+; Maximum allowed            ; 14          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 14          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-14        ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                         ;
++----------------------------------+-----------------+------------------------+----------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path           ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------+---------+
+; ../rtl/oled12832.v               ; yes             ; User Verilog HDL File  ; E:/03k/FPGA/MAX10/oled/rtl/oled12832.v ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------+---------+
+
+
++------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary          ;
++---------------------------------------------+--------+
+; Resource                                    ; Usage  ;
++---------------------------------------------+--------+
+; Estimated Total logic elements              ; 673    ;
+;                                             ;        ;
+; Total combinational functions               ; 673    ;
+; Logic element usage by number of LUT inputs ;        ;
+;     -- 4 input functions                    ; 501    ;
+;     -- 3 input functions                    ; 54     ;
+;     -- <=2 input functions                  ; 118    ;
+;                                             ;        ;
+; Logic elements by mode                      ;        ;
+;     -- normal mode                          ; 624    ;
+;     -- arithmetic mode                      ; 49     ;
+;                                             ;        ;
+; Total registers                             ; 94     ;
+;     -- Dedicated logic registers            ; 94     ;
+;     -- I/O registers                        ; 0      ;
+;                                             ;        ;
+; I/O pins                                    ; 7      ;
+;                                             ;        ;
+; Embedded Multiplier 9-bit elements          ; 0      ;
+;                                             ;        ;
+; Maximum fan-out node                        ; Mux1~3 ;
+; Maximum fan-out                             ; 191    ;
+; Total fan-out                               ; 2835   ;
+; Average fan-out                             ; 3.63   ;
++---------------------------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; |oled12832                 ; 673 (673)           ; 94 (94)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 7    ; 0            ; 0          ; |oled12832          ; oled12832   ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------+
+; State Machine - |oled12832|state_back                                                   ;
++-----------------+-----------------+-----------------+-----------------+-----------------+
+; Name            ; state_back.SCAN ; state_back.INIT ; state_back.MAIN ; state_back.IDLE ;
++-----------------+-----------------+-----------------+-----------------+-----------------+
+; state_back.IDLE ; 0               ; 0               ; 0               ; 0               ;
+; state_back.MAIN ; 0               ; 0               ; 1               ; 1               ;
+; state_back.INIT ; 0               ; 1               ; 0               ; 1               ;
+; state_back.SCAN ; 1               ; 0               ; 0               ; 1               ;
++-----------------+-----------------+-----------------+-----------------+-----------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------+
+; State Machine - |oled12832|state                                                            ;
++-------------+-------------+-------------+------------+------------+------------+------------+
+; Name        ; state.DELAY ; state.WRITE ; state.SCAN ; state.INIT ; state.MAIN ; state.IDLE ;
++-------------+-------------+-------------+------------+------------+------------+------------+
+; state.IDLE  ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ;
+; state.MAIN  ; 0           ; 0           ; 0          ; 0          ; 1          ; 1          ;
+; state.INIT  ; 0           ; 0           ; 0          ; 1          ; 0          ; 1          ;
+; state.SCAN  ; 0           ; 0           ; 1          ; 0          ; 0          ; 1          ;
+; state.WRITE ; 0           ; 1           ; 0          ; 0          ; 0          ; 1          ;
+; state.DELAY ; 1           ; 0           ; 0          ; 0          ; 0          ; 1          ;
++-------------+-------------+-------------+------------+------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                             ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                                                                                                         ; Reason for Removal                     ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+; cnt_init[4]                                                                                                                                           ; Merged with cnt_init[3]                ;
+; num_delay[1,4,6,9,11,12,15]                                                                                                                           ; Merged with num_delay[10]              ;
+; num_delay[3,5,7,8,14]                                                                                                                                 ; Merged with num_delay[13]              ;
+; num_delay[2]                                                                                                                                          ; Merged with num_delay[0]               ;
+; char[5,21,29,37,45,53,61,69,77,85,93]                                                                                                                 ; Merged with char[13]                   ;
+; x_ph[4]                                                                                                                                               ; Merged with char[13]                   ;
+; y_p[4,5,7]                                                                                                                                            ; Merged with char[13]                   ;
+; char[3,6,9,11,14,19,22,26,27,30,32,34,35,38,41..43,46,48..51,54,57,58,62,70,75,78,83,86,89,91,94,99,107,128..134,136..142,144..150,152..158,160..166] ; Merged with char[0]                    ;
+; x_ph[0..3,5..7]                                                                                                                                       ; Merged with char[0]                    ;
+; x_pl[0..7]                                                                                                                                            ; Merged with char[0]                    ;
+; y_p[2,3,6]                                                                                                                                            ; Merged with char[0]                    ;
+; char[68,73,74,76,82,84,90,92,108,124]                                                                                                                 ; Merged with char[100]                  ;
+; y_p[0]                                                                                                                                                ; Merged with char[100]                  ;
+; char[20,24,28,98]                                                                                                                                     ; Merged with char[120]                  ;
+; char[64..66,80,97]                                                                                                                                    ; Merged with char[112]                  ;
+; char[1,2,4,8,12,18,25,33,36,40,44,52,56,59,60,67,72,81,88,113]                                                                                        ; Merged with char[10]                   ;
+; char[16,17,115,123]                                                                                                                                   ; Merged with char[114]                  ;
+; char[106,110,118,121,122,126]                                                                                                                         ; Merged with char[102]                  ;
+; char[105,109,116,117,125]                                                                                                                             ; Merged with char[101]                  ;
+; cnt_init[3]                                                                                                                                           ; Stuck at GND due to stuck port data_in ;
+; num_delay[10]                                                                                                                                         ; Stuck at GND due to stuck port data_in ;
+; char[0]                                                                                                                                               ; Stuck at GND due to stuck port data_in ;
+; state_back~12                                                                                                                                         ; Lost fanout                            ;
+; state_back~13                                                                                                                                         ; Lost fanout                            ;
+; Total Number of Removed Registers = 178                                                                                                               ;                                        ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                        ;
++---------------+---------------------------+----------------------------------------+
+; Register name ; Reason for Removal        ; Registers Removed due to This Register ;
++---------------+---------------------------+----------------------------------------+
+; cnt_init[3]   ; Stuck at GND              ; num_delay[10], char[0]                 ;
+;               ; due to stuck port data_in ;                                        ;
++---------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 94    ;
+; Number of registers using Synchronous Clear  ; 54    ;
+; Number of registers using Synchronous Load   ; 8     ;
+; Number of registers using Asynchronous Clear ; 94    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 78    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; oled_csn~reg0                          ; 2       ;
+; oled_rst~reg0                          ; 3       ;
+; oled_clk~reg0                          ; 3       ;
+; num_delay[0]                           ; 2       ;
+; Total number of inverted registers = 4 ;         ;
++----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |oled12832|num[0]          ;
+; 25:1               ; 2 bits    ; 32 LEs        ; 12 LEs               ; 20 LEs                 ; Yes        ; |oled12832|char_reg[1]     ;
+; 19:1               ; 3 bits    ; 36 LEs        ; 15 LEs               ; 21 LEs                 ; Yes        ; |oled12832|char_reg[6]     ;
+; 19:1               ; 3 bits    ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; |oled12832|char_reg[7]     ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |oled12832|Mux0            ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |oled12832|cnt             ;
+; 32:1               ; 10 bits   ; 210 LEs       ; 30 LEs               ; 180 LEs                ; No         ; |oled12832|Selector13      ;
+; 17:1               ; 2 bits    ; 22 LEs        ; 4 LEs                ; 18 LEs                 ; No         ; |oled12832|Selector81      ;
+; 17:1               ; 4 bits    ; 44 LEs        ; 44 LEs               ; 0 LEs                  ; No         ; |oled12832|Selector75      ;
+; 21:1               ; 4 bits    ; 56 LEs        ; 8 LEs                ; 48 LEs                 ; No         ; |oled12832|Selector404     ;
+; 25:1               ; 2 bits    ; 32 LEs        ; 6 LEs                ; 26 LEs                 ; No         ; |oled12832|Selector401     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 7                           ;
+; cycloneiii_ff         ; 94                          ;
+;     CLR               ; 16                          ;
+;     ENA CLR           ; 16                          ;
+;     ENA CLR SCLR      ; 54                          ;
+;     ENA CLR SLD       ; 8                           ;
+; cycloneiii_lcell_comb ; 676                         ;
+;     arith             ; 49                          ;
+;         2 data inputs ; 49                          ;
+;     normal            ; 627                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 10                          ;
+;         2 data inputs ; 61                          ;
+;         3 data inputs ; 54                          ;
+;         4 data inputs ; 501                         ;
+;                       ;                             ;
+; Max LUT depth         ; 13.00                       ;
+; Average LUT depth     ; 7.96                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Fri Sep 13 02:15:52 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off oled -c oled
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /03k/fpga/max10/oled/rtl/oled12864.v
+    Info (12023): Found entity 1: oled12864 File: E:/03k/FPGA/MAX10/oled/rtl/oled12864.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /03k/fpga/max10/oled/rtl/oled12832.v
+    Info (12023): Found entity 1: oled12832 File: E:/03k/FPGA/MAX10/oled/rtl/oled12832.v Line: 1
+Info (12127): Elaborating entity "oled12832" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at oled12832.v(29): object "cnt_clear" assigned a value but never read File: E:/03k/FPGA/MAX10/oled/rtl/oled12832.v Line: 29
+Warning (10030): Net "cmd.data_a" at oled12832.v(24) has no driver or initial value, using a default initial value '0' File: E:/03k/FPGA/MAX10/oled/rtl/oled12832.v Line: 24
+Warning (10030): Net "cmd.waddr_a" at oled12832.v(24) has no driver or initial value, using a default initial value '0' File: E:/03k/FPGA/MAX10/oled/rtl/oled12832.v Line: 24
+Warning (10030): Net "mem.data_a" at oled12832.v(25) has no driver or initial value, using a default initial value '0' File: E:/03k/FPGA/MAX10/oled/rtl/oled12832.v Line: 25
+Warning (10030): Net "mem.waddr_a" at oled12832.v(25) has no driver or initial value, using a default initial value '0' File: E:/03k/FPGA/MAX10/oled/rtl/oled12832.v Line: 25
+Warning (10030): Net "cmd.we_a" at oled12832.v(24) has no driver or initial value, using a default initial value '0' File: E:/03k/FPGA/MAX10/oled/rtl/oled12832.v Line: 24
+Warning (10030): Net "mem.we_a" at oled12832.v(25) has no driver or initial value, using a default initial value '0' File: E:/03k/FPGA/MAX10/oled/rtl/oled12832.v Line: 25
+Critical Warning (127005): Memory depth (32) in the design file differs from memory depth (25) in the Memory Initialization File "E:/03k/FPGA/MAX10/oled/prj/db/oled.ram0_oled12832_73388873.hdl.mif" -- setting initial value for remaining addresses to 0
+Critical Warning (127005): Memory depth (128) in the design file differs from memory depth (124) in the Memory Initialization File "E:/03k/FPGA/MAX10/oled/prj/db/oled.ram1_oled12832_73388873.hdl.mif" -- setting initial value for remaining addresses to 0
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "E:/03k/FPGA/MAX10/oled/prj/db/oled.ram1_oled12832_73388873.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276013): RAM logic "cmd" is uninferred because MIF is not supported for the selected family File: E:/03k/FPGA/MAX10/oled/rtl/oled12832.v Line: 24
+    Info (276013): RAM logic "mem" is uninferred because MIF is not supported for the selected family File: E:/03k/FPGA/MAX10/oled/rtl/oled12832.v Line: 25
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "E:/03k/FPGA/MAX10/oled/prj/db/oled.ram1_oled12832_73388873.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (13000): Registers with preset signals will power-up high File: E:/03k/FPGA/MAX10/oled/rtl/oled12832.v Line: 5
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file E:/03k/FPGA/MAX10/oled/prj/output_files/oled.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 681 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 5 output pins
+    Info (21061): Implemented 674 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
+    Info: Peak virtual memory: 4837 megabytes
+    Info: Processing ended: Fri Sep 13 02:16:01 2024
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:03
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in E:/03k/FPGA/MAX10/oled/prj/output_files/oled.map.smsg.
+
+
